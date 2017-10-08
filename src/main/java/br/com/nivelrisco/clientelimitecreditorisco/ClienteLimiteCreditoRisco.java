@@ -72,10 +72,6 @@ public class ClienteLimiteCreditoRisco implements Serializable {
         this.risco = risco;
     }
 
-    public ClienteLimiteCreditoRiscoPK asPK() {
-        return new ClienteLimiteCreditoRiscoPK(getCliente(), getLimiteCredito(), getRisco());
-    }
-
     @Override
     public int hashCode() {
         int hash = 7;

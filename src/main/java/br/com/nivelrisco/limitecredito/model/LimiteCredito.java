@@ -30,6 +30,9 @@ public class LimiteCredito implements Serializable {
     @Column(length = 200, nullable = false)
     private BigDecimal valorLimite;
 
+    public LimiteCredito() {
+    }
+    
     public LimiteCredito(BigDecimal valorLimite) {
         this.valorLimite = valorLimite;
     }

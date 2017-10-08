@@ -5,9 +5,6 @@
  */
 package br.com.nivelrisco.clientelimitecreditorisco;
 
-import br.com.nivelrisco.client.model.Cliente;
-import br.com.nivelrisco.limitecredito.model.LimiteCredito;
-import br.com.nivelrisco.risco.model.Risco;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Embeddable;
@@ -19,48 +16,51 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class ClienteLimiteCreditoRiscoPK implements Serializable {
 
-    private Cliente cliente;
+    private Long cliente;
 
-    private LimiteCredito limiteCredito;
+    private Long limiteCredito;
 
-    private Risco risco;
+    private Long risco;
 
-    public ClienteLimiteCreditoRiscoPK(Cliente cliente, LimiteCredito limiteCredito, Risco risco) {
+    public ClienteLimiteCreditoRiscoPK() {
+    }
+
+    public ClienteLimiteCreditoRiscoPK(Long cliente, Long limiteCredito, Long risco) {
         this.cliente = cliente;
         this.limiteCredito = limiteCredito;
         this.risco = risco;
     }
-    
-    public Cliente getCliente() {
+
+    public Long getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(Long cliente) {
         this.cliente = cliente;
     }
 
-    public LimiteCredito getLimiteCredito() {
+    public Long getLimiteCredito() {
         return limiteCredito;
     }
 
-    public void setLimiteCredito(LimiteCredito limiteCredito) {
+    public void setLimiteCredito(Long limiteCredito) {
         this.limiteCredito = limiteCredito;
     }
 
-    public Risco getRisco() {
+    public Long getRisco() {
         return risco;
     }
 
-    public void setRisco(Risco risco) {
+    public void setRisco(Long risco) {
         this.risco = risco;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 41 * hash + Objects.hashCode(this.cliente);
-        hash = 41 * hash + Objects.hashCode(this.limiteCredito);
-        hash = 41 * hash + Objects.hashCode(this.risco);
+        hash = 29 * hash + Objects.hashCode(this.cliente);
+        hash = 29 * hash + Objects.hashCode(this.limiteCredito);
+        hash = 29 * hash + Objects.hashCode(this.risco);
         return hash;
     }
 
@@ -87,4 +87,5 @@ public class ClienteLimiteCreditoRiscoPK implements Serializable {
         }
         return true;
     }
+
 }

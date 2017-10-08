@@ -11,8 +11,8 @@ import static br.com.nivelrisco.clientelimitecreditorisco.web.ClienteLimiteCredi
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -34,7 +34,7 @@ public class ClienteLimiteCreditoRiscoController {
 
     @PostMapping
     public ClienteLimiteCreditoRiscoDTO saveClienteLimiteCreditoRiscoDTO(
-            @Valid @RequestParam ClienteLimiteCreditoRiscoDTO clienteDTO) {
+            @Valid @RequestBody ClienteLimiteCreditoRiscoDTO clienteDTO) {
         return clienteLimiteCreditoRiscoService.salvar(clienteDTO);
     }
 

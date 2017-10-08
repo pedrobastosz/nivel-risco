@@ -6,13 +6,11 @@
 package br.com.nivelrisco.clientelimitecreditorisco;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 /**
  *
  * @author pedro
  */
-@RepositoryRestResource
 public interface ClienteLimiteCreditoRiscoDAO extends JpaRepository<ClienteLimiteCreditoRisco, ClienteLimiteCreditoRiscoPK> {
 
 }

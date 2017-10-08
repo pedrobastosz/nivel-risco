@@ -14,15 +14,18 @@ import org.hibernate.validator.constraints.NotBlank;
  * @author pedro
  */
 public class ClienteLimiteCreditoRiscoDTO {
-    
-    @NotBlank(message = "Nome cliente deve ser informado")
-    private final String nome;
 
-    @NotBlank(message = "valor de limite credito cliente deve ser informado")    
-    private final String limiteCredito;
-    
+    @NotBlank(message = "Nome cliente deve ser informado")
+    private String nome;
+
+    @NotBlank(message = "valor de limite credito cliente deve ser informado")
+    private String limiteCredito;
+
     @NotBlank(message = "Tipo do risco deve ser informado")
-    private final String tipoRisco;
+    private String tipoRisco;
+
+    public ClienteLimiteCreditoRiscoDTO() {
+    }
 
     @JsonCreator
     public ClienteLimiteCreditoRiscoDTO(
@@ -33,7 +36,7 @@ public class ClienteLimiteCreditoRiscoDTO {
         this.limiteCredito = lmiteCredito;
         this.tipoRisco = tipoRisco;
     }
-    
+
     public String getNomeCliente() {
         return nome;
     }
@@ -44,6 +47,18 @@ public class ClienteLimiteCreditoRiscoDTO {
 
     public String getTipoRisco() {
         return tipoRisco;
+    }
+
+    public void setLimiteCredito(String limiteCredito) {
+        this.limiteCredito = limiteCredito;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setTipoRisco(String tipoRisco) {
+        this.tipoRisco = tipoRisco;
     }
 
 }
