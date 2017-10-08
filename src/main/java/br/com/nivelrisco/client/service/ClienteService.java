@@ -17,4 +17,6 @@ public interface ClienteService {
 
     Cliente save(Cliente cliente);
 
+    Cliente salvarOuCarregarPorNome(Cliente cliente);
+
 }

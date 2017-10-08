@@ -33,7 +33,6 @@ public class ClienteLimiteCreditoRiscoDTOMapperTest {
         Assertions.assertThat(toModel.getCliente().getNome()).isEqualTo(TESTE_NOME_CLIENTE);
         Assertions.assertThat(toModel.getLimiteCredito().getValorLimite()).isEqualTo(TESTE_LIMITE_VALOR_STR);
         Assertions.assertThat(toModel.getRisco().getTipoRisco().toString()).isEqualTo(TESTE_TIPO_RISCO_A_STR);
-
     }
 
     @Test
@@ -49,7 +48,7 @@ public class ClienteLimiteCreditoRiscoDTOMapperTest {
         return new ClienteLimiteCreditoRiscoDTO(TESTE_NOME_CLIENTE, TESTE_LIMITE_VALOR_STR, TESTE_TIPO_RISCO_A_STR);
     }
 
-    private ClienteLimiteCreditoRisco createClienteLimiteCreditoRisco() {
+    public ClienteLimiteCreditoRisco createClienteLimiteCreditoRisco() {
 
         Cliente c = new Cliente(TESTE_NOME_CLIENTE);
 

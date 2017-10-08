@@ -7,13 +7,11 @@ package br.com.nivelrisco.client.dao;
 
 import br.com.nivelrisco.client.model.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  
 /**
  *
  * @author pedro
  */
-@RepositoryRestResource
 public interface ClienteDAO extends JpaRepository<Cliente, Long>{
-    
+    Cliente findByNome(String nome);
 }

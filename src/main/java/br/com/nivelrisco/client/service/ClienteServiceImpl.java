@@ -8,8 +8,11 @@ package br.com.nivelrisco.client.service;
 import br.com.nivelrisco.common.EntidadeNaoEncontradaException;
 import br.com.nivelrisco.client.dao.ClienteDAO;
 import br.com.nivelrisco.client.model.Cliente;
+import br.com.nivelrisco.common.NegocioException;
+import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 /**
  *
@@ -37,6 +40,27 @@ public class ClienteServiceImpl implements ClienteService {
             throw new EntidadeNaoEncontradaException("Cliente");
         }
         return findOne;
+    }
+
+    @Override
+    public Cliente salvarOuCarregarPorNome(Cliente cliente) {
+        Objects.requireNonNull(cliente, "Cliente deve ser fornecido");
+        
+        final String nomeCliente = cliente.getNome();
+        validaNomeCliente( nomeCliente );
+        
+        Cliente findByNome = clienteDAO.findByNome(nomeCliente);
+        if (findByNome == null) {
+            return save(cliente);
+        } else {
+            return findByNome;
+        }
+    }
+
+    private void validaNomeCliente(String nomeCliente) {
+        if (!StringUtils.hasText(nomeCliente)) {
+            throw new NegocioException("Nome do cliente está vazio!");
+        }
     }
 
 }

@@ -17,4 +17,6 @@ public interface RiscoService {
 
     <S extends Risco> S save(S entity);
 
+    public Risco salvarOuCarregarPorTipoRisco(Risco risco);
+
 }

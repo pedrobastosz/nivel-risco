@@ -5,7 +5,6 @@
  */
 package br.com.nivelrisco.limitecredito.service;
 
-import br.com.nivelrisco.client.model.Cliente;
 import br.com.nivelrisco.limitecredito.model.LimiteCredito;
 
 /**
@@ -17,5 +16,7 @@ public interface LimiteCreditoService {
     LimiteCredito findOne(Long id);
 
     <S extends LimiteCredito> S save(S entity);
+
+    public LimiteCredito salvarOuCarregarPorValorLimite(LimiteCredito limiteCredito);
 
 }

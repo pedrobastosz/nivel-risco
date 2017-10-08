@@ -20,7 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class ClienteDAOImplIT {
-    
+
     private static final String TEST_NOME = "Nome";
 
     @Autowired
@@ -36,9 +36,22 @@ public class ClienteDAOImplIT {
         Assertions.assertThat(save.getNome()).isEqualTo(TEST_NOME);
     }
 
+    @Test
+    public void testSaveByNome() {
+        final Cliente createCliente = createCliente();
+        
+        Cliente save = clienteDAO.save(createCliente);
+        
+        save = clienteDAO.findByNome(save.getNome());
+        
+        Assertions.assertThat(save)
+                .isNotNull();
+        
+        Assertions.assertThat(save.getNome()).isEqualTo(TEST_NOME);
+    }
+
     private static Cliente createCliente() {
         return new Cliente(TEST_NOME);
     }
 
-    
 }

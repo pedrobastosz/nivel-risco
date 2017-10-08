@@ -53,6 +53,17 @@ public class RiscoDAOIT {
         Assertions.assertThat(save.getTaxaJuros()).isEqualTo(TaxaJuros.VINTE_PORCENTO);
     }
 
+    @Test
+    public void testFindByTipoRIsco() {
+        final Risco createRiscoTipoC = createRiscoTipoC();
+
+        riscoDAO.save(createRiscoTipoC);
+
+        Risco find = riscoDAO.findByTipoRisco(createRiscoTipoC.getTipoRisco());
+        
+        Assertions.assertThat(find).isNotNull();
+    }
+
     private static Risco createRiscoTipoA() {
         return new Risco(TipoRisco.A);
     }
