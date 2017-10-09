@@ -3,16 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.nivelrisco.clientelimitecreditorisco;
+package br.com.nivelrisco.clientelimitecreditorisco.service;
 
 import br.com.nivelrisco.client.model.Cliente;
 import br.com.nivelrisco.client.service.ClienteService;
+import br.com.nivelrisco.clientelimitecreditorisco.model.ClienteLimiteCreditoRisco;
+import br.com.nivelrisco.clientelimitecreditorisco.dao.ClienteLimiteCreditoRiscoDAO;
 import br.com.nivelrisco.clientelimitecreditorisco.mapping.ClienteLimiteCreditoRiscoDTO;
 import br.com.nivelrisco.clientelimitecreditorisco.mapping.ClienteLimiteCreditoRiscoDTOMapper;
 import br.com.nivelrisco.limitecredito.model.LimiteCredito;
 import br.com.nivelrisco.limitecredito.service.LimiteCreditoService;
 import br.com.nivelrisco.risco.model.Risco;
 import br.com.nivelrisco.risco.service.RiscoService;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,5 +67,15 @@ public class ClienteLimiteCreditoRiscoServiceImpl implements ClienteLimiteCredit
 
         return mapper.toDTO(save);
     }
+
+    @Override
+    public List<ClienteLimiteCreditoRiscoDTO> listarTodos() {
+        return clienteLimiteCreditoRiscoDAO.findAll()
+                .stream()
+                .map(mapper::toDTO)
+                .collect(Collectors.toList());
+    }
+    
+    
 
 }

@@ -2,7 +2,8 @@ package br.com.nivelrisco.clientelimitecreditorisco.mapping;
 
 import br.com.nivelrisco.client.model.Cliente;
 import br.com.nivelrisco.common.DTOMapper;
-import br.com.nivelrisco.clientelimitecreditorisco.ClienteLimiteCreditoRisco;
+import br.com.nivelrisco.clientelimitecreditorisco.model.ClienteLimiteCreditoRisco;
+import br.com.nivelrisco.common.NegocioException;
 import br.com.nivelrisco.limitecredito.model.LimiteCredito;
 import br.com.nivelrisco.risco.model.Risco;
 import br.com.nivelrisco.risco.model.TipoRisco;
@@ -56,7 +57,7 @@ public class ClienteLimiteCreditoRiscoDTOMapper implements
         try {
             return new BigDecimal(limiteCredito);
         } catch (Exception e) {
-            throw new IllegalArgumentException("limiteCredito deve ser um número decimal válido: " + limiteCredito);
+            throw new NegocioException("limite crédito deve ser um número decimal válido: " + limiteCredito);
         }
     }
 }
