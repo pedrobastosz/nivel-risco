@@ -45,8 +45,8 @@ angular.module('crudApp').controller('UserController',
                         $scope.myForm.$setPristine();
                     },
                     function (errResponse) {
-                        console.error('Erro ao criar registror');
-                        self.errorMessage = 'Erro ao criar registror: ' + errResponse.data.errorMessage;
+                        console.error('Erro ao criar registro');
+                        self.errorMessage = 'Erro ao criar registro: ' + errResponse.data.errorMessage;
                         self.successMessage='';
                     }
                 );
@@ -73,15 +73,19 @@ angular.module('crudApp').controller('UserController',
         }
 
 
-        function removeUser(id){
-            console.log('About to remove User with id '+id);
-            UserService.removeUser(id)
+        function removeUser(user){
+            console.log('About to remove User with id '+ user);
+            UserService.removeUser(user)
                 .then(
                     function(){
-                        console.log('User '+id + ' removed successfully');
+                        self.successMessage='Registro deletado com sucesso';
+                        self.errorMessage='';
+                        self.done = true;
                     },
                     function(errResponse){
-                        console.error('Error while removing user '+id +', Error :'+errResponse.data);
+                        console.error('Erro ao deletar registro');
+                        self.errorMessage = 'Erro ao deletar registro: ' + errResponse.data.errorMessage;
+                        self.successMessage='';
                     }
                 );
         }

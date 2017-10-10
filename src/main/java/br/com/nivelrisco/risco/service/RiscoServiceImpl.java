@@ -3,7 +3,6 @@ package br.com.nivelrisco.risco.service;
 import br.com.nivelrisco.risco.dao.RiscoDAO;
 import br.com.nivelrisco.risco.model.Risco;
 import br.com.nivelrisco.risco.model.TipoRisco;
-import java.math.BigDecimal;
 import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,16 +22,6 @@ public class RiscoServiceImpl implements RiscoService {
     }
 
     @Override
-    public <S extends Risco> S save(S entity) {
-        return riscoDAO.save(entity);
-    }
-
-    @Override
-    public Risco findOne(Long id) {
-        return riscoDAO.findOne(id);
-    }
-
-    @Override
     public Risco salvarOuCarregarPorTipoRisco(Risco risco) {
         Objects.requireNonNull(risco, "Limite de credito deve ser fornecido");
 
@@ -40,7 +29,7 @@ public class RiscoServiceImpl implements RiscoService {
 
         Risco findByTipoRisco = riscoDAO.findByTipoRisco(tipoRisco);
         if (findByTipoRisco == null) {
-            return save(risco);
+            return riscoDAO.save(risco);
         } else {
             return findByTipoRisco;
         }

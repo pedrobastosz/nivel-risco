@@ -10,6 +10,7 @@ import br.com.nivelrisco.limitecredito.model.LimiteCredito;
 import br.com.nivelrisco.risco.model.Risco;
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -25,17 +26,17 @@ import javax.persistence.ManyToOne;
 public class ClienteLimiteCreditoRisco implements Serializable {
 
     @Id
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "codigoCliente", nullable = false)
     private Cliente cliente;
 
     @Id
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "codigoLimiteCredito", nullable = false)
     private LimiteCredito limiteCredito;
 
     @Id
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "codigoRisco", nullable = false)
     private Risco risco;
 
@@ -47,7 +48,7 @@ public class ClienteLimiteCreditoRisco implements Serializable {
 
     public ClienteLimiteCreditoRisco() {
     }
-    
+
     public Cliente getCliente() {
         return cliente;
     }

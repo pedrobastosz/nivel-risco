@@ -13,10 +13,6 @@ import br.com.nivelrisco.risco.model.Risco;
  */
 public interface RiscoService {
 
-    Risco findOne(Long id);
-
-    <S extends Risco> S save(S entity);
-
     public Risco salvarOuCarregarPorTipoRisco(Risco risco);
 
 }

@@ -29,20 +29,6 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public Cliente save(Cliente cliente) {
-        return clienteDAO.save(cliente);
-    }
-
-    @Override
-    public Cliente findOne(Long id) {
-        Cliente findOne = clienteDAO.findOne(id);
-        if (findOne == null) {
-            throw new EntidadeNaoEncontradaException("Cliente");
-        }
-        return findOne;
-    }
-
-    @Override
     public Cliente salvarOuCarregarPorNome(Cliente cliente) {
         Objects.requireNonNull(cliente, "Cliente deve ser fornecido");
         
@@ -51,7 +37,7 @@ public class ClienteServiceImpl implements ClienteService {
         
         Cliente findByNome = clienteDAO.findByNome(nomeCliente);
         if (findByNome == null) {
-            return save(cliente);
+            return clienteDAO.save(cliente);
         } else {
             return findByNome;
         }

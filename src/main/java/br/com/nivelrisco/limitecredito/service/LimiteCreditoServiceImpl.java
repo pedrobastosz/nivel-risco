@@ -28,16 +28,6 @@ public class LimiteCreditoServiceImpl implements LimiteCreditoService {
     }
 
     @Override
-    public <S extends LimiteCredito> S save(S entity) {
-        return limiteCreditoDAO.save(entity);
-    }
-
-    @Override
-    public LimiteCredito findOne(Long id) {
-        return limiteCreditoDAO.findOne(id);
-    }
-
-    @Override
     public LimiteCredito salvarOuCarregarPorValorLimite(LimiteCredito limiteCredito) {
         Objects.requireNonNull(limiteCredito, "Limite de credito deve ser fornecido");
 
@@ -45,7 +35,7 @@ public class LimiteCreditoServiceImpl implements LimiteCreditoService {
 
         LimiteCredito findByLimiteCredito = limiteCreditoDAO.findByValorLimite(valorLimite);
         if (findByLimiteCredito == null) {
-            return save(limiteCredito);
+            return limiteCreditoDAO.save(limiteCredito);
         } else {
             return findByLimiteCredito;
         }

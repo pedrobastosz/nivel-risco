@@ -13,10 +13,6 @@ import br.com.nivelrisco.client.model.Cliente;
  */
 public interface ClienteService {
 
-    Cliente findOne(Long id);
-
-    Cliente save(Cliente cliente);
-
     Cliente salvarOuCarregarPorNome(Cliente cliente);
 
 }

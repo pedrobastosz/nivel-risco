@@ -91,16 +91,14 @@ angular.module('crudApp').factory('UserService',
             }
 
             function removeUser(user) {
-                console.log('Removendo registro '+ removeUser);
                 var deferred = $q.defer();
-                $http.delete(urls.USER_SERVICE_API + user)
+                $http.delete(urls.USER_SERVICE_API + "/" + user.nome + "/" + user.limiteCredito + "/" + user.tipoRisco)
                     .then(
                         function (response) {
                             loadAllUsers();
                             deferred.resolve(response.data);
                         },
                         function (errResponse) {
-                            console.error('Error while removing User with user :'+user);
                             deferred.reject(errResponse);
                         }
                     );

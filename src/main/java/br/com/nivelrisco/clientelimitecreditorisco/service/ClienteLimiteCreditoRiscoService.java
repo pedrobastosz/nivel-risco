@@ -17,5 +17,9 @@ public interface ClienteLimiteCreditoRiscoService {
     ClienteLimiteCreditoRiscoDTO salvar(ClienteLimiteCreditoRiscoDTO clienteLimiteCreditoRiscoDTO);
 
     List<ClienteLimiteCreditoRiscoDTO> listarTodos();
+
+    void deletar(ClienteLimiteCreditoRiscoDTO clienteLimiteCreditoRiscoDTO);
+
+    void deletar(String nome, String limiteCredito, String tipoRisco);
     
 }

@@ -13,10 +13,6 @@ import br.com.nivelrisco.limitecredito.model.LimiteCredito;
  */
 public interface LimiteCreditoService {
 
-    LimiteCredito findOne(Long id);
-
-    <S extends LimiteCredito> S save(S entity);
-
     public LimiteCredito salvarOuCarregarPorValorLimite(LimiteCredito limiteCredito);
 
 }

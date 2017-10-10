@@ -11,6 +11,7 @@ import br.com.nivelrisco.clientelimitecreditorisco.model.ClienteLimiteCreditoRis
 import br.com.nivelrisco.clientelimitecreditorisco.dao.ClienteLimiteCreditoRiscoDAO;
 import br.com.nivelrisco.clientelimitecreditorisco.mapping.ClienteLimiteCreditoRiscoDTO;
 import br.com.nivelrisco.clientelimitecreditorisco.mapping.ClienteLimiteCreditoRiscoDTOMapper;
+import br.com.nivelrisco.common.NegocioException;
 import br.com.nivelrisco.limitecredito.model.LimiteCredito;
 import br.com.nivelrisco.limitecredito.service.LimiteCreditoService;
 import br.com.nivelrisco.risco.model.Risco;
@@ -75,7 +76,29 @@ public class ClienteLimiteCreditoRiscoServiceImpl implements ClienteLimiteCredit
                 .map(mapper::toDTO)
                 .collect(Collectors.toList());
     }
-    
-    
+
+    @Override
+    public void deletar(ClienteLimiteCreditoRiscoDTO clienteLimiteCreditoRiscoDTO) {
+        ClienteLimiteCreditoRisco clienteLimiteCreditoRisco = mapper.toModel(clienteLimiteCreditoRiscoDTO);
+
+        Cliente cliente = clienteService.salvarOuCarregarPorNome(clienteLimiteCreditoRisco.getCliente());
+
+        LimiteCredito limiteCredito = limiteCreditoService.salvarOuCarregarPorValorLimite(clienteLimiteCreditoRisco.getLimiteCredito());
+
+        Risco risco = riscoService.salvarOuCarregarPorTipoRisco(clienteLimiteCreditoRisco.getRisco());
+
+        ClienteLimiteCreditoRisco aDeletar = new ClienteLimiteCreditoRisco(cliente, limiteCredito, risco);
+
+        try {
+            clienteLimiteCreditoRiscoDAO.delete(aDeletar);
+        } catch (Exception e) {
+            throw new NegocioException("Ocorreu um erro ao apagar registro", e);
+        }
+    }
+
+    @Override
+    public void deletar(String nome, String limiteCredito, String tipoRisco) {
+        deletar(new ClienteLimiteCreditoRiscoDTO(nome, limiteCredito, tipoRisco, null));
+    }
 
 }
