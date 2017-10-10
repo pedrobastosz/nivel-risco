@@ -8,9 +8,13 @@ package br.com.nivelrisco.clientelimitecreditorisco.web;
 import br.com.nivelrisco.clientelimitecreditorisco.service.ClienteLimiteCreditoRiscoService;
 import br.com.nivelrisco.clientelimitecreditorisco.mapping.ClienteLimiteCreditoRiscoDTO;
 import static br.com.nivelrisco.clientelimitecreditorisco.web.ClienteLimiteCreditoRiscoController.URI_CADASTRO;
+import br.com.nivelrisco.common.ErroDTO;
+import br.com.nivelrisco.common.NegocioException;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,9 +39,13 @@ public class ClienteLimiteCreditoRiscoController {
     }
 
     @PostMapping
-    public ClienteLimiteCreditoRiscoDTO saveClienteLimiteCreditoRiscoDTO(
+    public ResponseEntity<?> saveClienteLimiteCreditoRiscoDTO(
             @Valid @RequestBody ClienteLimiteCreditoRiscoDTO clienteDTO) {
-        return clienteLimiteCreditoRiscoService.salvar(clienteDTO);
+        try {
+            return new ResponseEntity<>(clienteLimiteCreditoRiscoService.salvar(clienteDTO), HttpStatus.OK);
+        } catch (NegocioException e) {
+            return new ResponseEntity<>(new ErroDTO(e.getMessage()), HttpStatus.BAD_REQUEST);
+        }
     }
     
     @GetMapping

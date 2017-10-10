@@ -2,7 +2,6 @@
     <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading"><span class="lead">Cliente com limite e nivel de risco</span></div>
-                {{ctrl.users}}
                 <div class="panel-body">
 	        <div class="formcontainer">
 	            <div class="alert alert-success" role="alert" ng-if="ctrl.successMessage">{{ctrl.successMessage}}</div>
@@ -37,10 +36,10 @@
 	                </div>
 
 	                <div class="row">
-	                    <div class="form-actions floatRight">
-	                        <input type="submit"  value="{{!ctrl.user.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid || myForm.$pristine">
-	                        <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>
-	                    </div>
+                            <div class="col-md-7">
+                                <input type="submit"  value="Adicionar" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid || myForm.$pristine">
+                                <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Limpar campos</button>
+                            </div>
 	                </div>
 	            </form>
     	    </div>
@@ -57,7 +56,7 @@
 		                <th>Nome do cliente</th>
 		                <th>Valor do limite de crédito</th>
 		                <th>Tipo de risco</th>
-		                <th width="100"></th>
+		                <th>Valor taxa de juros</th>
 		                <th width="100"></th>
 		            </tr>
 		            </thead>
@@ -66,8 +65,8 @@
 		                <td>{{u.nome}}</td>
 		                <td>{{u.limiteCredito}}</td>
 		                <td>{{u.tipoRisco}}</td>
-		                <td><button type="button" ng-click="ctrl.editUser(u.id)" class="btn btn-success custom-width">Edit</button></td>
-		                <td><button type="button" ng-click="ctrl.removeUser(u.id)" class="btn btn-danger custom-width">Remove</button></td>
+                                <td>{{u.taxaJuros}}</td>
+		                <td><button type="button" ng-click="ctrl.removeUser(u)" class="btn btn-danger custom-width">Remover</button></td>
 		            </tr>
 		            </tbody>
 		        </table>		

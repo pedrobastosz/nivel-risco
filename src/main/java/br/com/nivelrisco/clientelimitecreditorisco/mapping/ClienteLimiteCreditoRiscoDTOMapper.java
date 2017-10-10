@@ -11,10 +11,6 @@ import java.math.BigDecimal;
 import java.util.Objects;
 import org.springframework.stereotype.Component;
 
-/**
- *
- * @author pedro
- */
 @Component
 public class ClienteLimiteCreditoRiscoDTOMapper implements
         DTOMapper<ClienteLimiteCreditoRisco, ClienteLimiteCreditoRiscoDTO> {
@@ -33,7 +29,7 @@ public class ClienteLimiteCreditoRiscoDTOMapper implements
 
         String tipoRisco = clienteLimiteCreditoRisco.getRisco().getTipoRisco().toString();
 
-        return new ClienteLimiteCreditoRiscoDTO(nome, valorLimite, tipoRisco);
+        return new ClienteLimiteCreditoRiscoDTO(nome, valorLimite, tipoRisco, clienteLimiteCreditoRisco.getRisco().getTaxaJuros().getTaxa());
 
     }
 
@@ -48,16 +44,31 @@ public class ClienteLimiteCreditoRiscoDTOMapper implements
 
         LimiteCredito limiteCredito = new LimiteCredito(toBD(clienteLimiteCreditoRiscoDTO.getLimiteCredito()));
 
-        Risco risco = new Risco(TipoRisco.valueOf(clienteLimiteCreditoRiscoDTO.getTipoRisco()));
+        Risco risco = new Risco(toTipoRisco(clienteLimiteCreditoRiscoDTO));
 
         return new ClienteLimiteCreditoRisco(cliente, limiteCredito, risco);
     }
 
+    public static TipoRisco toTipoRisco(ClienteLimiteCreditoRiscoDTO clienteLimiteCreditoRiscoDTO) {
+        final String tipoRisco = clienteLimiteCreditoRiscoDTO.getTipoRisco();
+        try {
+            return TipoRisco.valueOf(tipoRisco);
+        } catch (IllegalArgumentException e) {
+            throw new NegocioException("Tipo de risco deve ser A, B ou C. Valor informado: " + tipoRisco, e);
+        }
+    }
+
     private BigDecimal toBD(String limiteCredito) {
         try {
-            return new BigDecimal(limiteCredito);
-        } catch (Exception e) {
-            throw new NegocioException("limite crédito deve ser um número decimal válido: " + limiteCredito);
+            final BigDecimal bigDecimal = new BigDecimal(limiteCredito.replaceAll(",", "."));
+
+            if (bigDecimal.scale() > 2) {
+                throw new IllegalArgumentException("Limite credito deve conter no máximo 2 casas decimais");
+            }
+
+            return bigDecimal;
+        } catch (IllegalArgumentException e) {
+            throw new NegocioException("limite crédito deve ser um número decimal válido com no máximo 2 casas decimais. Valor informado: " + limiteCredito);
         }
     }
 }

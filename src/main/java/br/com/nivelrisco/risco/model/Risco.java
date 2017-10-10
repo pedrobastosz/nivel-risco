@@ -41,7 +41,7 @@ public class Risco implements Serializable {
         setTaxaJurosBaseadoNivelRisco(tipoRisco);
     }
 
-    public void setTaxaJurosBaseadoNivelRisco(TipoRisco tipoRisco1) {
+    public final void setTaxaJurosBaseadoNivelRisco(TipoRisco tipoRisco1) {
         switch (tipoRisco1) {
              case A:
                 this.taxaJuros = TaxaJuros.NENHUMA;

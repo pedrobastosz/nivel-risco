@@ -9,6 +9,7 @@ import br.com.nivelrisco.client.model.Cliente;
 import br.com.nivelrisco.clientelimitecreditorisco.model.ClienteLimiteCreditoRisco;
 import br.com.nivelrisco.limitecredito.model.LimiteCredito;
 import br.com.nivelrisco.risco.model.Risco;
+import br.com.nivelrisco.risco.model.TaxaJuros;
 import br.com.nivelrisco.risco.model.TipoRisco;
 import java.math.BigDecimal;
 import org.assertj.core.api.Assertions;
@@ -22,9 +23,10 @@ public class ClienteLimiteCreditoRiscoDTOMapperTest {
 
     public static final String TESTE_NOME_CLIENTE = "Teste Nome";
     public static final String TESTE_LIMITE_VALOR_STR = "458";
-    public static final String TESTE_TIPO_RISCO_A_STR = "A";
+    public static final String TESTE_TIPO_RISCO_A_STR = TipoRisco.A.toString();
+    public static final String TESTE_TIPO_RISCO_A_TAXA_JUROS = TaxaJuros.NENHUMA.getTaxa();
 
-    private ClienteLimiteCreditoRiscoDTOMapper mapper = new ClienteLimiteCreditoRiscoDTOMapper();
+    private final ClienteLimiteCreditoRiscoDTOMapper mapper = new ClienteLimiteCreditoRiscoDTOMapper();
 
     @Test
     public void testToModel() {
@@ -42,10 +44,12 @@ public class ClienteLimiteCreditoRiscoDTOMapperTest {
         Assertions.assertThat(toDTO.getNome()).isEqualTo(TESTE_NOME_CLIENTE);
         Assertions.assertThat(toDTO.getLimiteCredito()).isEqualTo(TESTE_LIMITE_VALOR_STR);
         Assertions.assertThat(toDTO.getTipoRisco()).isEqualTo(TESTE_TIPO_RISCO_A_STR);
+        Assertions.assertThat(toDTO.getTaxaJuros()).isEqualTo(TESTE_TIPO_RISCO_A_TAXA_JUROS);
     }
 
     public static ClienteLimiteCreditoRiscoDTO createClienteLimiteCreditoRiscoDTO() {
-        return new ClienteLimiteCreditoRiscoDTO(TESTE_NOME_CLIENTE, TESTE_LIMITE_VALOR_STR, TESTE_TIPO_RISCO_A_STR);
+        return new ClienteLimiteCreditoRiscoDTO(TESTE_NOME_CLIENTE, TESTE_LIMITE_VALOR_STR,
+                TESTE_TIPO_RISCO_A_STR, TESTE_TIPO_RISCO_A_TAXA_JUROS);
     }
 
     public ClienteLimiteCreditoRisco createClienteLimiteCreditoRisco() {

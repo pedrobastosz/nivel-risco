@@ -6,7 +6,7 @@
 package br.com.nivelrisco.common;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import org.springframework.http.HttpStatus;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  *
@@ -14,13 +14,19 @@ import org.springframework.http.HttpStatus;
  */
 public class ErroDTO {
 
-//    private HttpStatus status;
-    private String mensagem;
-    
+    private String errorMessage;
+
     @JsonCreator
-    public ErroDTO(HttpStatus status, String mensagem) {
-//        this.status = status;
-        this.mensagem = mensagem;
+    public ErroDTO(@JsonProperty("errorMessage") String mensagem) {
+        this.errorMessage = mensagem;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
     }
 
 }

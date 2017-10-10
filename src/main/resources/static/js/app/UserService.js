@@ -66,7 +66,7 @@ angular.module('crudApp').factory('UserService',
                             deferred.resolve(response.data);
                         },
                         function (errResponse) {
-                           console.error('Error while creating User : '+errResponse.data.errorMessage);
+                           console.error('Erro ao criar registror : '+errResponse.data.errorMessage);
                            deferred.reject(errResponse);
                         }
                     );
@@ -90,17 +90,17 @@ angular.module('crudApp').factory('UserService',
                 return deferred.promise;
             }
 
-            function removeUser(id) {
-                console.log('Removing User with id '+id);
+            function removeUser(user) {
+                console.log('Removendo registro '+ removeUser);
                 var deferred = $q.defer();
-                $http.delete(urls.USER_SERVICE_API + id)
+                $http.delete(urls.USER_SERVICE_API + user)
                     .then(
                         function (response) {
                             loadAllUsers();
                             deferred.resolve(response.data);
                         },
                         function (errResponse) {
-                            console.error('Error while removing User with id :'+id);
+                            console.error('Error while removing User with user :'+user);
                             deferred.reject(errResponse);
                         }
                     );

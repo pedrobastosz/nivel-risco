@@ -19,13 +19,16 @@ angular.module('crudApp').controller('UserController',
         self.errorMessage = '';
         self.done = false;
 
-        self.onlyIntegers = /^\d+$/;
-        self.onlyNumbers = /^\d+([,.]\d+)?$/;
-        self.somenteLista = /^(A|B|C)$/;
+//        self.onlyIntegers = /^\d+$/;
+//        self.onlyNumbers = /^\d+([,.]\d+)?$/;
+//        self.somenteLista = /^(A|B|C)$/;
+
+        self.onlyIntegers = /^.*$/;
+        self.onlyNumbers = /^.*$/;
+        self.somenteLista = /^.*$/;
         
         function submit() {
-            console.log('Submitting');
-            console.log('Saving New User', self.user);
+            console.log('Salvando novo registro', self.user);
             createUser(self.user);
         }
 
@@ -34,16 +37,16 @@ angular.module('crudApp').controller('UserController',
             UserService.createUser(user)
                 .then(
                     function (response) {
-                        console.log('User created successfully');
-                        self.successMessage = 'User created successfully';
+                        console.log('Registro criado com sucesso');
+                        self.successMessage = 'Registro criado com sucesso';
                         self.errorMessage='';
                         self.done = true;
                         self.user={};
                         $scope.myForm.$setPristine();
                     },
                     function (errResponse) {
-                        console.error('Error while creating User');
-                        self.errorMessage = 'Error while creating User: ' + errResponse.data.errorMessage;
+                        console.error('Erro ao criar registror');
+                        self.errorMessage = 'Erro ao criar registror: ' + errResponse.data.errorMessage;
                         self.successMessage='';
                     }
                 );
