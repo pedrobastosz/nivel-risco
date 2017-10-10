@@ -12,7 +12,7 @@
 	                    <div class="form-group col-md-12">
 	                        <label class="col-md-2 control-lable" for="uname">Nome do cliente</label>
 	                        <div class="col-md-7">
-	                            <input type="text" ng-model="ctrl.registro.nome" id="uname" class="username form-control input-sm" placeholder="Entre com o nome do cliente" required ng-minlength="3"/>
+	                            <input type="text" ng-model="ctrl.registro.nome" id="nome" class="username form-control input-sm" placeholder="Entre com o nome do cliente" required ng-minlength="3"/>
 	                        </div>
 	                    </div>
 	                </div>
@@ -21,7 +21,7 @@
 	                    <div class="form-group col-md-12">
 	                        <label class="col-md-2 control-lable" for="age">Valor do limite de crédito</label>
 	                        <div class="col-md-7">
-	                            <input type="text" ng-model="ctrl.registro.limiteCredito" id="age" class="form-control input-sm" placeholder="Entre com o valor do limite de crédito" required />
+	                            <input type="text" ng-model="ctrl.registro.limiteCredito" id="limiteCredito" class="form-control input-sm" placeholder="Entre com o valor do limite de crédito" required />
 	                        </div>
 	                    </div>
 	                </div>
@@ -30,7 +30,7 @@
 	                    <div class="form-group col-md-12">
 	                        <label class="col-md-2 control-lable" for="salary">Tipo de risco</label>
 	                        <div class="col-md-7">
-	                            <input type="text" ng-model="ctrl.registro.tipoRisco" id="salary" class="form-control input-sm" placeholder="Entre com o tipo de risco (A, B ou C)" required />
+	                            <input type="text" ng-model="ctrl.registro.tipoRisco" id="tipoRisco" class="form-control input-sm" placeholder="Entre com o tipo de risco (A, B ou C)" required />
 	                        </div>
 	                    </div>
 	                </div>
