@@ -58,7 +58,6 @@ angular.module('crudApp').controller('controller',
                 );
         }
 
-
         function getAllUsers(){
             return service.getAllUsers();
         }

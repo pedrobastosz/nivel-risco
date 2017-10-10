@@ -31,7 +31,6 @@ angular.module('crudApp').factory('service',
 
             function getAllUsers(){
                 var temp = $localStorage.users;
-                console.log("gelAllUserS: " + JSON.stringify(temp));
                 return temp;
             }
 

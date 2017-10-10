@@ -17,7 +17,6 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 controllerAs:'ctrl',
                 resolve: {
                     users: function ($q, service) {
-                        console.log('Load all users');
                         var deferred = $q.defer();
                         service.loadAllUsers().then(deferred.resolve, deferred.resolve);
                         return deferred.promise;
