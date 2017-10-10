@@ -12,14 +12,5 @@
                 <goal>-Dmaven.test.skip=true</goal>
             </goals>
         </action>
-        <action>
-            <actionName>test</actionName>
-            <packagings>
-                <packaging>*</packaging>
-            </packagings>
-            <goals>
-                <goal>clean</goal>
-                <goal>test</goal>
-            </goals>
-        </action>
+        
     </actions>

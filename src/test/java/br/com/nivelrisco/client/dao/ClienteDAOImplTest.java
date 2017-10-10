@@ -19,7 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class ClienteDAOImplIT {
+public class ClienteDAOImplTest {
 
     private static final String TEST_NOME = "Nome";
 

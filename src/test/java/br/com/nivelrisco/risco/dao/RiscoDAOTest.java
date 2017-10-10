@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class RiscoDAOIT {
+public class RiscoDAOTest {
 
     @Autowired
     private RiscoDAO riscoDAO;

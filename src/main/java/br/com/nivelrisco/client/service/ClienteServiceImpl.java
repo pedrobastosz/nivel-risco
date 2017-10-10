@@ -5,7 +5,6 @@
  */
 package br.com.nivelrisco.client.service;
 
-import br.com.nivelrisco.common.EntidadeNaoEncontradaException;
 import br.com.nivelrisco.client.dao.ClienteDAO;
 import br.com.nivelrisco.client.model.Cliente;
 import br.com.nivelrisco.common.NegocioException;

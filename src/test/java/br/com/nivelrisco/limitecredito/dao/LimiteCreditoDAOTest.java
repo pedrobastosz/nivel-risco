@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class LimiteCreditoDAOIT {
+public class LimiteCreditoDAOTest {
     
     private static final BigDecimal TEST_VALOR = BigDecimal.TEN;
 
