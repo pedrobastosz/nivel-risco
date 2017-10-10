@@ -5,8 +5,8 @@ angular.module('crudApp').factory('service',
         function ($localStorage, $http, $q, urls) {
 
             var factory = {
-                loadAllUsers: loadAllUsers,
-                getAllUsers: getAllUsers,
+                loadAll: loadAll,
+                getAll: getAll,
                 getUser: getUser,
                 createUser: createUser,
                 removeUser: removeUser
@@ -14,12 +14,12 @@ angular.module('crudApp').factory('service',
 
             return factory;
 
-            function loadAllUsers() {
+            function loadAll() {
                 var deferred = $q.defer();
                 $http.get(urls.USER_SERVICE_API)
                     .then(
                         function (response) {
-                            $localStorage.users = response.data;
+                            $localStorage.registros = response.data;
                             deferred.resolve(response);
                         },
                         function (errResponse) {
@@ -29,8 +29,8 @@ angular.module('crudApp').factory('service',
                 return deferred.promise;
             }
 
-            function getAllUsers(){
-                var temp = $localStorage.users;
+            function getAll(){
+                var temp = $localStorage.registros;
                 return temp;
             }
 
@@ -53,7 +53,7 @@ angular.module('crudApp').factory('service',
                 $http.post(urls.USER_SERVICE_API, user)
                     .then(
                         function (response) {
-                            loadAllUsers();
+                            loadAll();
                             deferred.resolve(response.data);
                         },
                         function (errResponse) {
@@ -64,12 +64,12 @@ angular.module('crudApp').factory('service',
                 return deferred.promise;
             }
 
-            function removeUser(user) {
+            function removeUser(registro) {
                 var deferred = $q.defer();
-                $http.delete(urls.USER_SERVICE_API + "/" + user.nome + "/" + user.limiteCredito + "/" + user.tipoRisco)
+                $http.delete(urls.USER_SERVICE_API + "/" + registro.nome + "/" + registro.limiteCredito + "/" + registro.tipoRisco)
                     .then(
                         function (response) {
-                            loadAllUsers();
+                            loadAll();
                             deferred.resolve(response.data);
                         },
                         function (errResponse) {

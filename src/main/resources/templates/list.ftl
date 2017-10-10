@@ -12,7 +12,7 @@
 	                    <div class="form-group col-md-12">
 	                        <label class="col-md-2 control-lable" for="uname">Nome do cliente</label>
 	                        <div class="col-md-7">
-	                            <input type="text" ng-model="ctrl.user.nome" id="uname" class="username form-control input-sm" placeholder="Entre com o nome do cliente" required ng-minlength="3"/>
+	                            <input type="text" ng-model="ctrl.registro.nome" id="uname" class="username form-control input-sm" placeholder="Entre com o nome do cliente" required ng-minlength="3"/>
 	                        </div>
 	                    </div>
 	                </div>
@@ -21,7 +21,7 @@
 	                    <div class="form-group col-md-12">
 	                        <label class="col-md-2 control-lable" for="age">Valor do limite de crédito</label>
 	                        <div class="col-md-7">
-	                            <input type="text" ng-model="ctrl.user.limiteCredito" id="age" class="form-control input-sm" placeholder="Entre com o valor do limite de crédito" required />
+	                            <input type="text" ng-model="ctrl.registro.limiteCredito" id="age" class="form-control input-sm" placeholder="Entre com o valor do limite de crédito" required />
 	                        </div>
 	                    </div>
 	                </div>
@@ -30,7 +30,7 @@
 	                    <div class="form-group col-md-12">
 	                        <label class="col-md-2 control-lable" for="salary">Tipo de risco</label>
 	                        <div class="col-md-7">
-	                            <input type="text" ng-model="ctrl.user.tipoRisco" id="salary" class="form-control input-sm" placeholder="Entre com o tipo de risco (A, B ou C)" required />
+	                            <input type="text" ng-model="ctrl.registro.tipoRisco" id="salary" class="form-control input-sm" placeholder="Entre com o tipo de risco (A, B ou C)" required />
 	                        </div>
 	                    </div>
 	                </div>
@@ -61,7 +61,7 @@
 		            </tr>
 		            </thead>
 		            <tbody>
-		            <tr ng-repeat="u in ctrl.getAllUsers()">
+		            <tr ng-repeat="u in ctrl.getAll()">
 		                <td>{{u.nome}}</td>
 		                <td>{{u.limiteCredito}}</td>
 		                <td>{{u.tipoRisco}}</td>

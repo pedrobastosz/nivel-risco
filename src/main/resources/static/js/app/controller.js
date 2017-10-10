@@ -4,11 +4,11 @@ angular.module('crudApp').controller('controller',
     ['service', '$scope',  function( service, $scope) {
 
         var self = this;
-        self.user = {};
-        self.users=[];
+        self.registro = {};
+        self.registros=[];
 
         self.submit = submit;
-        self.getAllUsers = getAllUsers;
+        self.getAll = getAll;
         self.createUser = createUser;
         self.removeUser = removeUser;
         self.reset = reset;
@@ -18,8 +18,8 @@ angular.module('crudApp').controller('controller',
         self.done = false;
 
         function submit() {
-            console.log('Salvando novo registro', self.user);
-            createUser(self.user);
+            console.log('Salvando novo registro', self.registro);
+            createUser(self.registro);
         }
 
         function createUser(user) {
@@ -30,7 +30,7 @@ angular.module('crudApp').controller('controller',
                         self.successMessage = 'Registro criado com sucesso';
                         self.errorMessage='';
                         self.done = true;
-                        self.user={};
+                        self.registro={};
                         $scope.myForm.$setPristine();
                     },
                     function (errResponse) {
@@ -58,14 +58,14 @@ angular.module('crudApp').controller('controller',
                 );
         }
 
-        function getAllUsers(){
-            return service.getAllUsers();
+        function getAll(){
+            return service.getAll();
         }
 
         function reset(){
             self.successMessage='';
             self.errorMessage='';
-            self.user={};
+            self.registro={};
             $scope.myForm.$setPristine(); //reset Form
         }
     }
