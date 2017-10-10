@@ -15,17 +15,14 @@ angular.module('crudApp').factory('service',
             return factory;
 
             function loadAllUsers() {
-                console.log('Fetching all users');
                 var deferred = $q.defer();
                 $http.get(urls.USER_SERVICE_API)
                     .then(
                         function (response) {
-                            console.log('Fetched successfully all users' + response);
                             $localStorage.users = response.data;
                             deferred.resolve(response);
                         },
                         function (errResponse) {
-                            console.error('Error while loading users');
                             deferred.reject(errResponse);
                         }
                     );
@@ -39,16 +36,13 @@ angular.module('crudApp').factory('service',
             }
 
             function getUser(id) {
-                console.log('Fetching User with id :'+id);
                 var deferred = $q.defer();
                 $http.get(urls.USER_SERVICE_API + id)
                     .then(
                         function (response) {
-                            console.log('Fetched successfully User with id :'+id);
                             deferred.resolve(response.data);
                         },
                         function (errResponse) {
-                            console.error('Error while loading user with id :'+id);
                             deferred.reject(errResponse);
                         }
                     );
@@ -56,7 +50,6 @@ angular.module('crudApp').factory('service',
             }
 
             function createUser(user) {
-                console.log('Creating User');
                 var deferred = $q.defer();
                 $http.post(urls.USER_SERVICE_API, user)
                     .then(

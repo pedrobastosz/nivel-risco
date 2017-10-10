@@ -11,24 +11,18 @@ angular.module('crudApp').controller('controller',
         self.getAllUsers = getAllUsers;
         self.createUser = createUser;
         self.removeUser = removeUser;
-        self.editUser = editUser;
         self.reset = reset;
 
         self.successMessage = '';
         self.errorMessage = '';
         self.done = false;
 
-        self.onlyIntegers = /^.*$/;
-        self.onlyNumbers = /^.*$/;
-        self.somenteLista = /^.*$/;
-        
         function submit() {
             console.log('Salvando novo registro', self.user);
             createUser(self.user);
         }
 
         function createUser(user) {
-            console.log('About to create user' + user.nome);
             service.createUser(user)
                 .then(
                     function (response) {
@@ -49,7 +43,6 @@ angular.module('crudApp').controller('controller',
 
 
         function removeUser(user){
-            console.log('About to remove User with id '+ user);
             service.removeUser(user)
                 .then(
                     function(){
@@ -70,18 +63,6 @@ angular.module('crudApp').controller('controller',
             return service.getAllUsers();
         }
 
-        function editUser(id) {
-            self.successMessage='';
-            self.errorMessage='';
-            service.getUser(id).then(
-                function (user) {
-                    self.user = user;
-                },
-                function (errResponse) {
-                    console.error('Error while removing user ' + id + ', Error :' + errResponse.data);
-                }
-            );
-        }
         function reset(){
             self.successMessage='';
             self.errorMessage='';
