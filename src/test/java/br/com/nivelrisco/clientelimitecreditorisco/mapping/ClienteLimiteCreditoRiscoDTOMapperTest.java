@@ -39,7 +39,7 @@ public class ClienteLimiteCreditoRiscoDTOMapperTest {
     public void testToDTO() {
         ClienteLimiteCreditoRiscoDTO toDTO = mapper.toDTO(createClienteLimiteCreditoRisco());
         Assertions.assertThat(toDTO).isNotNull();
-        Assertions.assertThat(toDTO.getNomeCliente()).isEqualTo(TESTE_NOME_CLIENTE);
+        Assertions.assertThat(toDTO.getNome()).isEqualTo(TESTE_NOME_CLIENTE);
         Assertions.assertThat(toDTO.getLimiteCredito()).isEqualTo(TESTE_LIMITE_VALOR_STR);
         Assertions.assertThat(toDTO.getTipoRisco()).isEqualTo(TESTE_TIPO_RISCO_A_STR);
     }

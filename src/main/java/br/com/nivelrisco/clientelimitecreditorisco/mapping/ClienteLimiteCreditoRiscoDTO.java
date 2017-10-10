@@ -37,7 +37,7 @@ public class ClienteLimiteCreditoRiscoDTO {
         this.tipoRisco = tipoRisco;
     }
 
-    public String getNomeCliente() {
+    public String getNome() {
         return nome;
     }
 

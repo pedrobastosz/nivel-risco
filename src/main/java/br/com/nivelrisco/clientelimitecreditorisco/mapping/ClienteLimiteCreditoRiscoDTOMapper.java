@@ -40,11 +40,11 @@ public class ClienteLimiteCreditoRiscoDTOMapper implements
     @Override
     public ClienteLimiteCreditoRisco toModel(ClienteLimiteCreditoRiscoDTO clienteLimiteCreditoRiscoDTO) {
         Objects.requireNonNull(clienteLimiteCreditoRiscoDTO, "modelo não pode ser nulo");
-        Objects.requireNonNull(clienteLimiteCreditoRiscoDTO.getNomeCliente(), "cliente não pode ser nulo");
+        Objects.requireNonNull(clienteLimiteCreditoRiscoDTO.getNome(), "cliente não pode ser nulo");
         Objects.requireNonNull(clienteLimiteCreditoRiscoDTO.getLimiteCredito(), "limite de crédito não pode ser nulo");
         Objects.requireNonNull(clienteLimiteCreditoRiscoDTO.getTipoRisco(), "TipoRisco não pode ser nulo");
 
-        Cliente cliente = new Cliente(clienteLimiteCreditoRiscoDTO.getNomeCliente());
+        Cliente cliente = new Cliente(clienteLimiteCreditoRiscoDTO.getNome());
 
         LimiteCredito limiteCredito = new LimiteCredito(toBD(clienteLimiteCreditoRiscoDTO.getLimiteCredito()));
 

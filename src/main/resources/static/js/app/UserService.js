@@ -21,7 +21,7 @@ angular.module('crudApp').factory('UserService',
                 $http.get(urls.USER_SERVICE_API)
                     .then(
                         function (response) {
-                            console.log('Fetched successfully all users');
+                            console.log('Fetched successfully all users' + response);
                             $localStorage.users = response.data;
                             deferred.resolve(response);
                         },
@@ -34,7 +34,9 @@ angular.module('crudApp').factory('UserService',
             }
 
             function getAllUsers(){
-                return $localStorage.users;
+                var temp = $localStorage.users;
+                console.log("gelAllUserS: " + JSON.stringify(temp));
+                return temp;
             }
 
             function getUser(id) {

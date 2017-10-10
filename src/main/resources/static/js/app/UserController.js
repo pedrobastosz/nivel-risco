@@ -21,6 +21,7 @@ angular.module('crudApp').controller('UserController',
 
         self.onlyIntegers = /^\d+$/;
         self.onlyNumbers = /^\d+([,.]\d+)?$/;
+        self.somenteLista = /^(A|B|C)$/;
         
         function submit() {
             console.log('Submitting');
@@ -29,7 +30,7 @@ angular.module('crudApp').controller('UserController',
         }
 
         function createUser(user) {
-            console.log('About to create user');
+            console.log('About to create user' + user.nome);
             UserService.createUser(user)
                 .then(
                     function (response) {
