@@ -10,7 +10,6 @@ angular.module('crudApp').controller('controller',
         self.submit = submit;
         self.getAllUsers = getAllUsers;
         self.createUser = createUser;
-        self.updateUser = updateUser;
         self.removeUser = removeUser;
         self.editUser = editUser;
         self.reset = reset;
@@ -43,26 +42,6 @@ angular.module('crudApp').controller('controller',
                     function (errResponse) {
                         console.error('Erro ao criar registro');
                         self.errorMessage = 'Erro ao criar registro: ' + errResponse.data.errorMessage;
-                        self.successMessage='';
-                    }
-                );
-        }
-
-
-        function updateUser(user, id){
-            console.log('About to update user');
-            service.updateUser(user, id)
-                .then(
-                    function (response){
-                        console.log('User updated successfully');
-                        self.successMessage='User updated successfully';
-                        self.errorMessage='';
-                        self.done = true;
-                        $scope.myForm.$setPristine();
-                    },
-                    function(errResponse){
-                        console.error('Error while updating User');
-                        self.errorMessage='Error while updating User '+errResponse.data;
                         self.successMessage='';
                     }
                 );

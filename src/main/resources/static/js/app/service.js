@@ -9,7 +9,6 @@ angular.module('crudApp').factory('service',
                 getAllUsers: getAllUsers,
                 getUser: getUser,
                 createUser: createUser,
-                updateUser: updateUser,
                 removeUser: removeUser
             };
 
@@ -68,23 +67,6 @@ angular.module('crudApp').factory('service',
                         function (errResponse) {
                            console.error('Erro ao criar registror : '+errResponse.data.errorMessage);
                            deferred.reject(errResponse);
-                        }
-                    );
-                return deferred.promise;
-            }
-
-            function updateUser(user, id) {
-                console.log('Updating User with id '+id);
-                var deferred = $q.defer();
-                $http.put(urls.USER_SERVICE_API + id, user)
-                    .then(
-                        function (response) {
-                            loadAllUsers();
-                            deferred.resolve(response.data);
-                        },
-                        function (errResponse) {
-                            console.error('Error while updating User with id :'+id);
-                            deferred.reject(errResponse);
                         }
                     );
                 return deferred.promise;
