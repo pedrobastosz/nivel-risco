@@ -77,6 +77,7 @@ public class ClienteLimiteCreditoRiscoServiceImpl implements ClienteLimiteCredit
                 .collect(Collectors.toList());
     }
 
+    @Transactional()
     @Override
     public void deletar(ClienteLimiteCreditoRiscoDTO clienteLimiteCreditoRiscoDTO) {
         ClienteLimiteCreditoRisco clienteLimiteCreditoRisco = mapper.toModel(clienteLimiteCreditoRiscoDTO);

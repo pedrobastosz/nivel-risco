@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('crudApp').controller('UserController',
-    ['UserService', '$scope',  function( UserService, $scope) {
+    ['service', '$scope',  function( service, $scope) {
 
         var self = this;
         self.user = {};
@@ -34,7 +34,7 @@ angular.module('crudApp').controller('UserController',
 
         function createUser(user) {
             console.log('About to create user' + user.nome);
-            UserService.createUser(user)
+            service.createUser(user)
                 .then(
                     function (response) {
                         console.log('Registro criado com sucesso');
@@ -55,7 +55,7 @@ angular.module('crudApp').controller('UserController',
 
         function updateUser(user, id){
             console.log('About to update user');
-            UserService.updateUser(user, id)
+            service.updateUser(user, id)
                 .then(
                     function (response){
                         console.log('User updated successfully');
@@ -75,7 +75,7 @@ angular.module('crudApp').controller('UserController',
 
         function removeUser(user){
             console.log('About to remove User with id '+ user);
-            UserService.removeUser(user)
+            service.removeUser(user)
                 .then(
                     function(){
                         self.successMessage='Registro deletado com sucesso';
@@ -92,13 +92,13 @@ angular.module('crudApp').controller('UserController',
 
 
         function getAllUsers(){
-            return UserService.getAllUsers();
+            return service.getAllUsers();
         }
 
         function editUser(id) {
             self.successMessage='';
             self.errorMessage='';
-            UserService.getUser(id).then(
+            service.getUser(id).then(
                 function (user) {
                     self.user = user;
                 },

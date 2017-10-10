@@ -26,17 +26,17 @@ import javax.persistence.ManyToOne;
 public class ClienteLimiteCreditoRisco implements Serializable {
 
     @Id
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne
     @JoinColumn(name = "codigoCliente", nullable = false)
     private Cliente cliente;
 
     @Id
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne
     @JoinColumn(name = "codigoLimiteCredito", nullable = false)
     private LimiteCredito limiteCredito;
 
     @Id
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne
     @JoinColumn(name = "codigoRisco", nullable = false)
     private Risco risco;
 

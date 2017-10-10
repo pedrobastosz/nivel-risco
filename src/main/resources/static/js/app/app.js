@@ -16,10 +16,10 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 controller:'UserController',
                 controllerAs:'ctrl',
                 resolve: {
-                    users: function ($q, UserService) {
+                    users: function ($q, service) {
                         console.log('Load all users');
                         var deferred = $q.defer();
-                        UserService.loadAllUsers().then(deferred.resolve, deferred.resolve);
+                        service.loadAllUsers().then(deferred.resolve, deferred.resolve);
                         return deferred.promise;
                     }
                 }
