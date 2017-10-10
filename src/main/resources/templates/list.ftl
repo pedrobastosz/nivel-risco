@@ -66,7 +66,7 @@
 		                <td>{{u.limiteCredito}}</td>
 		                <td>{{u.tipoRisco}}</td>
                                 <td>{{u.taxaJuros}}</td>
-		                <td><button type="button" ng-click="ctrl.removeUser(u)" class="btn btn-danger custom-width">Remover</button></td>
+		                <td><button type="button" ng-click="ctrl.remove(u)" class="btn btn-danger custom-width">Remover</button></td>
 		            </tr>
 		            </tbody>
 		        </table>		

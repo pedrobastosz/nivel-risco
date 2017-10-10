@@ -9,8 +9,8 @@ angular.module('crudApp').controller('controller',
 
         self.submit = submit;
         self.getAll = getAll;
-        self.createUser = createUser;
-        self.removeUser = removeUser;
+        self.create = create;
+        self.remove = remove;
         self.reset = reset;
 
         self.successMessage = '';
@@ -19,11 +19,11 @@ angular.module('crudApp').controller('controller',
 
         function submit() {
             console.log('Salvando novo registro', self.registro);
-            createUser(self.registro);
+            create(self.registro);
         }
 
-        function createUser(user) {
-            service.createUser(user)
+        function create(user) {
+            service.create(user)
                 .then(
                     function (response) {
                         console.log('Registro criado com sucesso');
@@ -42,8 +42,8 @@ angular.module('crudApp').controller('controller',
         }
 
 
-        function removeUser(user){
-            service.removeUser(user)
+        function remove(user){
+            service.remove(user)
                 .then(
                     function(){
                         self.successMessage='Registro deletado com sucesso';

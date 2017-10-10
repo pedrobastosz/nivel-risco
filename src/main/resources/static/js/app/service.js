@@ -7,9 +7,9 @@ angular.module('crudApp').factory('service',
             var factory = {
                 loadAll: loadAll,
                 getAll: getAll,
-                getUser: getUser,
-                createUser: createUser,
-                removeUser: removeUser
+                get: get,
+                create: create,
+                remove: remove
             };
 
             return factory;
@@ -34,7 +34,7 @@ angular.module('crudApp').factory('service',
                 return temp;
             }
 
-            function getUser(id) {
+            function get(id) {
                 var deferred = $q.defer();
                 $http.get(urls.USER_SERVICE_API + id)
                     .then(
@@ -48,7 +48,7 @@ angular.module('crudApp').factory('service',
                 return deferred.promise;
             }
 
-            function createUser(user) {
+            function create(user) {
                 var deferred = $q.defer();
                 $http.post(urls.USER_SERVICE_API, user)
                     .then(
@@ -64,7 +64,7 @@ angular.module('crudApp').factory('service',
                 return deferred.promise;
             }
 
-            function removeUser(registro) {
+            function remove(registro) {
                 var deferred = $q.defer();
                 $http.delete(urls.USER_SERVICE_API + "/" + registro.nome + "/" + registro.limiteCredito + "/" + registro.tipoRisco)
                     .then(
