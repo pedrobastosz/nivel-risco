@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('crudApp').controller('UserController',
+angular.module('crudApp').controller('controller',
     ['service', '$scope',  function( service, $scope) {
 
         var self = this;
@@ -18,10 +18,6 @@ angular.module('crudApp').controller('UserController',
         self.successMessage = '';
         self.errorMessage = '';
         self.done = false;
-
-//        self.onlyIntegers = /^\d+$/;
-//        self.onlyNumbers = /^\d+([,.]\d+)?$/;
-//        self.somenteLista = /^(A|B|C)$/;
 
         self.onlyIntegers = /^.*$/;
         self.onlyNumbers = /^.*$/;

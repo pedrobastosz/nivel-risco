@@ -15,6 +15,6 @@
         <script src="js/lib/ngStorage.min.js"></script>
         <script src="js/app/app.js"></script>
         <script src="js/app/service.js"></script>
-        <script src="js/app/UserController.js"></script>
+        <script src="js/app/controller.js"></script>
     </body>
 </html>

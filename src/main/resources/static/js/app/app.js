@@ -13,7 +13,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 
                 url: '/',
                 templateUrl: 'partials/list',
-                controller:'UserController',
+                controller:'controller',
                 controllerAs:'ctrl',
                 resolve: {
                     users: function ($q, service) {
