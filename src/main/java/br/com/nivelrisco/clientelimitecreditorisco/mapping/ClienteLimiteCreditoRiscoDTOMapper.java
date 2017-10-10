@@ -1,6 +1,6 @@
 package br.com.nivelrisco.clientelimitecreditorisco.mapping;
 
-import br.com.nivelrisco.client.model.Cliente;
+import br.com.nivelrisco.cliente.model.Cliente;
 import br.com.nivelrisco.common.DTOMapper;
 import br.com.nivelrisco.clientelimitecreditorisco.model.ClienteLimiteCreditoRisco;
 import br.com.nivelrisco.common.NegocioException;

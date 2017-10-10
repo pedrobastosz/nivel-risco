@@ -5,7 +5,7 @@
  */
 package br.com.nivelrisco.clientelimitecreditorisco.mapping;
 
-import br.com.nivelrisco.client.model.Cliente;
+import br.com.nivelrisco.cliente.model.Cliente;
 import br.com.nivelrisco.clientelimitecreditorisco.model.ClienteLimiteCreditoRisco;
 import br.com.nivelrisco.limitecredito.model.LimiteCredito;
 import br.com.nivelrisco.risco.model.Risco;

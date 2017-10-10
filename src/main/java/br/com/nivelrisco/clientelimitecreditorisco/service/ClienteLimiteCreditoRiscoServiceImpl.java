@@ -5,8 +5,8 @@
  */
 package br.com.nivelrisco.clientelimitecreditorisco.service;
 
-import br.com.nivelrisco.client.model.Cliente;
-import br.com.nivelrisco.client.service.ClienteService;
+import br.com.nivelrisco.cliente.model.Cliente;
+import br.com.nivelrisco.cliente.service.ClienteService;
 import br.com.nivelrisco.clientelimitecreditorisco.model.ClienteLimiteCreditoRisco;
 import br.com.nivelrisco.clientelimitecreditorisco.dao.ClienteLimiteCreditoRiscoDAO;
 import br.com.nivelrisco.clientelimitecreditorisco.mapping.ClienteLimiteCreditoRiscoDTO;
@@ -77,7 +77,7 @@ public class ClienteLimiteCreditoRiscoServiceImpl implements ClienteLimiteCredit
                 .collect(Collectors.toList());
     }
 
-    @Transactional()
+    @Transactional
     @Override
     public void deletar(ClienteLimiteCreditoRiscoDTO clienteLimiteCreditoRiscoDTO) {
         ClienteLimiteCreditoRisco clienteLimiteCreditoRisco = mapper.toModel(clienteLimiteCreditoRiscoDTO);
@@ -97,6 +97,7 @@ public class ClienteLimiteCreditoRiscoServiceImpl implements ClienteLimiteCredit
         }
     }
 
+    @Transactional
     @Override
     public void deletar(String nome, String limiteCredito, String tipoRisco) {
         deletar(new ClienteLimiteCreditoRiscoDTO(nome, limiteCredito, tipoRisco, null));

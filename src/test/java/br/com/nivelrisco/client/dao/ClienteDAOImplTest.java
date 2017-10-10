@@ -5,7 +5,8 @@
  */
 package br.com.nivelrisco.client.dao;
 
-import br.com.nivelrisco.client.model.Cliente;
+import br.com.nivelrisco.cliente.dao.ClienteDAO;
+import br.com.nivelrisco.cliente.model.Cliente;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;

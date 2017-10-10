@@ -5,7 +5,6 @@
  */
 package br.com.nivelrisco.limitecredito.service;
 
-import br.com.nivelrisco.client.model.Cliente;
 import br.com.nivelrisco.limitecredito.dao.LimiteCreditoDAO;
 import br.com.nivelrisco.limitecredito.model.LimiteCredito;
 import java.math.BigDecimal;

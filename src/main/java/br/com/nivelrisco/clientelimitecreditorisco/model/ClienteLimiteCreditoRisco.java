@@ -5,12 +5,11 @@
  */
 package br.com.nivelrisco.clientelimitecreditorisco.model;
 
-import br.com.nivelrisco.client.model.Cliente;
+import br.com.nivelrisco.cliente.model.Cliente;
 import br.com.nivelrisco.limitecredito.model.LimiteCredito;
 import br.com.nivelrisco.risco.model.Risco;
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;

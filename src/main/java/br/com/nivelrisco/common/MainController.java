@@ -15,7 +15,7 @@ public class MainController {
 
     @RequestMapping("/")
     String home(ModelMap modal) {
-        modal.addAttribute("title", "CRUD Example");
+        modal.addAttribute("title", "Nivel Risco");
         return "index";
     }
 

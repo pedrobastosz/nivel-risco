@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.nivelrisco.client.service;
+package br.com.nivelrisco.cliente.service;
 
-import br.com.nivelrisco.client.dao.ClienteDAO;
-import br.com.nivelrisco.client.model.Cliente;
+import br.com.nivelrisco.cliente.dao.ClienteDAO;
+import br.com.nivelrisco.cliente.model.Cliente;
 import br.com.nivelrisco.common.NegocioException;
 import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
