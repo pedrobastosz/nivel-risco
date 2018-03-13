@@ -1,6 +1,6 @@
 # nivel-risco
 
-* Sobre a arquitetura
+Sobre a arquitetura
 
 - Optei por usar o BD em memório H2 pela simplicidade (não ter que instalar Postgres/MYSQL, etc.), mas o código é facilmente adaptável a qualquer outro DB (Estou usando JPA com hibernate)
 - São 4 tabelas: cliente (id, nome), limite_credito (id, valorLimite), risco(id, tipoRisco, taxaJuros) e uma tabela associativa das 3, cliente_limite_credito_risco, resolvi mapear assim para deixar a modelagem normalizada
