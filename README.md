@@ -1,7 +1,6 @@
 # nivel-risco
 
-PREMISSA 
- 	Desenvolver camada visual com AngularJS e um serviço para tratar das regras de negócio 
+Desenvolver camada visual com AngularJS e um serviço para tratar das regras de negócio 
  	Fique à vontade para definir a arquitetura e o modelo de persistência. 
 -	Linguagem: Java 
 -	Front-end: AngularJS 
